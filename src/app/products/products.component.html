@@ -1,0 +1,13 @@
+<div class="col-md-4 mt-4">
+</div class="card">
+<div class="card-body">
+    <img [src]="product.productImageUrl" alt="" width="100%" height="250px">
+    <p>{{ product.productName }}</p>
+    <p>{{ product.productDescription }}</p>
+<button class="btn btn-outline-dark"(click)='deletProduct(product)'>
+    Delete
+</button>
+</div>
+</div>
+
+</div>
