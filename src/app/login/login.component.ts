@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-login',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  error: String;
+  constructor(private authService:AuthService) { }
 
   ngOnInit(): void {
   }
 
+  loginUser(form:NgForm) {
+    this.authService.login(form.value).subscribe(response => {
+      console.log(response);
+      if (response.error) {
+        this.error =response.message;
+        setTimeout(()=> {
+          this.error = null;
+        }, 5000);
+      } else {
+        localStorage.setItem('userDetails', JSON.stringify(response));
+        this.router.navigateByUrl('/');
+      }
+      form.reset();
+      
+    });
+  }
 }

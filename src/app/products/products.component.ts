@@ -9,8 +9,9 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
+  todaysDate = new Date();
   products;
-  message;
+  message : String;
 
   constructor(
     private productService: ProductService,

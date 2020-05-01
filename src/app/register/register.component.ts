@@ -7,9 +7,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService :AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
   }
-
+  registerUser() {
+    this.authService.register(form.value).subscribe(response => {
+      console.log(response);
+      if (response.error) {
+        this.message=response.message;
+        setTimeout(() => {
+          this.error=null;
+        },)
+      } else {
+        this.message='User registered successfully. Please Login';
+      }
+      form.reset();
+    });
+  }
 }

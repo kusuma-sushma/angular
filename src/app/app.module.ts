@@ -16,6 +16,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { PostsComponent } from './posts/posts.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
 import { ProductService } from './home/product.service';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ProductService } from './home/product.service';
     AddProductComponent,
     PostsComponent,
     EditProductComponent,
-    ProductService
+    ProductService,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
